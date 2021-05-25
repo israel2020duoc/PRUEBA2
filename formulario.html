@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Formulario</title>
+  </head>
+  <body>
+  <div class="container">
+  <div class="jumbotron bg-secondary">
+      <h1 class="display-4">Statistics Sport</h1>
+      <p class="lead">Te entregamos las estadísticas y rendiciones de cada deporte en el mundo</p>
+      <hr class="my-4">
+      <h1>Creación de usuario</h1>
+    </div>
+        <div class="container">
+        <div class="row">
+            <form action="" id="formulario">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email">Ingrese email</label>
+                    <input type="email" name="email" id="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="rut">Ingrese Rut</label>
+                    <input type="text" name="rut" id="rut" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Ingrese Clave</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password2">Repita clave</label>
+                    <input type="password" name="password2" id="password2" class="form-control">
+                </div>
+                <br>
+                Comentarios
+                <br>
+                <textarea name="comentario" cols="50" rows="10"></textarea>
+                <input type="submit" value="Enviar" class="btn btn-dark" id="enviar">
+                <a href="principal.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Atrás</a>
+                <div class="alert alert-danger" id="error"></div>
+            </form>
+        </div>
+    </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+     $(document).ready(function(){
+         $("#error").hide();
+         $("#formulario").submit(function(){
+             var mensaje = "";
+             if($("#nombre").val().trim().length == 0){
+                 mensaje = "El nombre está en blanco"
+             }
+             if($("#email").val().trim().length == 0){
+                 mensaje = "El email está en blanco"
+             }
+             if($("#rut").val().trim().length == 0){
+                 mensaje = "El rut está en blanco"
+             }
+             if($("#password").val().trim().length == 0){
+                 mensaje = "Debe colocar la clave"
+             }
+             if($("#password2").val().trim().length == 0){
+                 mensaje = "Debe colocar la clave"
+             }
+             if(mensaje != ""){
+                 $("#error").html(mensaje);
+                 $("#error").show();
+                 event.preventDefault();
+             }
+         });
+     });
+ </script>
+
+  </body>
+</html>
